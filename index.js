@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
 const axios = require('axios').default;
-const countryList = require('country-list');
+const { getCode } = require('country-list');
 const chalk = require('chalk');
 const ora = require('ora');
-
 const spinner = ora('Loading dates').start();
+const figlet = require('figlet');
+
 
 setTimeout(() => {
     spinner.color = 'yellow';
@@ -17,8 +18,13 @@ let country = arguments[2];
 var year = arguments[3];
 let date = new Date();
 let thisYear = date.getFullYear();
+var countryCode = getCode(country);
 
-let countryCode = getCode(input[0]);
+console.log(
+    chalk.yellow(
+        figlet.textSync('Holidates', { horizontalLayout: 'full' })
+    )
+);
 
 if (year === undefined) {var year = thisYear};
 if (countryCode === undefined) {
