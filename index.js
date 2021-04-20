@@ -18,7 +18,7 @@ var year = arguments[3];
 let date = new Date();
 let thisYear = date.getFullYear();
 
-var countryCode = getCode(country);
+let countryCode = getCode(input[0]);
 
 if (year === undefined) {var year = thisYear};
 if (countryCode === undefined) {
