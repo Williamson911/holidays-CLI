@@ -1,4 +1,38 @@
-const axios = require('axios');
-const countryList = require('country-list').default;
+#!/usr/bin/env node
+
+const axios = require('axios').default;
+const countryList = require('country-list');
 const chalk = require('chalk');
-axios.get('https://date.nager.at/Api')
+const ora = require('ora');
+
+const spinner = ora('Loading dates').start();
+
+setTimeout(() => {
+    spinner.color = 'yellow';
+    spinner.text = 'Loading dates';
+}, 1000);
+
+let arguments = process.argv;
+let country = arguments[2];
+var year = arguments[3];
+let date = new Date();
+let thisYear = date.getFullYear();
+
+var countryCode = getCode(country);
+
+if (year === undefined) {var year = thisYear};
+if (countryCode === undefined) {
+    console.log(chalk.bold.red("Your country is undefined"));
+}
+else {
+    axios.get(`https://date.nager.at/api/v2/PublicHolidays/${year}/${countryCode}`)
+
+        .then(response => {
+            response.data.forEach(holiday => {
+                console.log(chalk.yellow(holiday.name) + " - " + chalk.white.bold(holiday.date));
+            });
+        })
+        .catch(error => {
+            console.log(chalk.bold.red(error));
+        });
+}
