@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Williamson911/holidays-CLI#readme",
   "dependencies": {
+    "@williamson/holidates": "^1.2.5",
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "country-list": "^2.2.0",
