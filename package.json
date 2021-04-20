@@ -1,9 +1,30 @@
 {
+  "name": "@williamson/holidates",
+  "version": "1.2.5",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "holidates": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Williamson911/holidays-CLI.git"
+  },
+  "author": "William Williamson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Williamson911/holidays-CLI/issues"
+  },
+  "homepage": "https://github.com/Williamson911/holidays-CLI#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
     "country-list": "^2.2.0",
     "figlet": "^1.5.0",
+    "holidates": "^1.0.0",
     "ora": "^5.4.0"
   }
 }
